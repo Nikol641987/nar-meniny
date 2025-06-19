@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Meniny a narodeniny</title>
   <style>
     body {
@@ -37,7 +37,7 @@
   <h1 id="meninyText"></h1>
   <div id="narodeninyText"></div>
 
- <script>
+  <script>
     const dnes = new Date();
     const den = String(dnes.getDate()).padStart(2, '0');
     const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
@@ -118,57 +118,51 @@
       "10-07":"Eliška","10-08":"Brigita","10-09":"Dionýz","10-10":"Slavomíra",
       "10-11":"Valentína","10-12":"Maximilián","10-13":"Koloman","10-14":"Boris",
       "10-15":"Terézia","10-16":"Vladimíra","10-17":"Hedviga","10-18":"Lukáš",
-      "10-19":"Kristián","10-20":"Vendelín","10-21":"Uršuľa","10-22":"Sergej",
-      "10-23":"Alojzia","10-24":"Kvetoslava","10-25":"Aurel","10-26":"Demeter",
-      "10-27":"Sabína","10-28":"Dobromila","10-29":"Klára","10-30":"Šimon","10-31":"Aurélia",
-      "11-01":"Všetkých svätých","11-02":"Dušičky","11-03":"Hubert","11-04":"Karol",
-      "11-05":"Imrich","11-06":"Renáta","11-07":"René","11-08":"Bohumír",
-      "11-09":"Teodor","11-10":"Tibor","11-11":"Martin","11-12":"Svätopluk",
-      "11-13":"Stanislav","11-14":"Irma","11-15":"Leopold","11-16":"Agnesa",
-      "11-17":"Klaudia","11-18":"Eugen","11-19":"Alžbeta","11-20":"Félix",
-      "11-21":"Elvíra","11-22":"Cecília","11-23":"Klement","11-24":"Emília",
-      "11-25":"Katarína","11-26":"Kornel","11-27":"Milan","11-28":"Henrieta",
-      "11-29":"Vratko","11-30":"Ondrej","12-01":"Edmund","12-02":"Bibiána",
-      "12-03":"Oldrich","12-04":"Barbora","12-05":"Oto","12-06":"Mikuláš",
-      "12-07":"Ambróz","12-08":"Marína","12-09":"Izabela","12-10":"Radúz",
-      "12-11":"Hilda","12-12":"Otília","12-13":"Lucia","12-14":"Branislava",
-      "12-15":"Ivica","12-16":"Albína","12-17":"Kornélia","12-18":"Slávka",
-      "12-19":"Judita","12-20":"Dagmara","12-21":"Bohdan","12-22":"Adela",
-      "12-23":"Nadežda","12-24":"Adam a Eva","12-25":"1. sviatok vianočný",
-      "12-26":"Štefan","12-27":"Filoména","12-28":"Ivana","12-29":"Milada",
-      "12-30":"Dávid","12-31":"Silvester"
+      "10-19":"Ľudovíta","10-20":"Naděžda","10-21":"Orsola","10-22":"Sabína",
+      "10-23":"Teodor","10-24":"Nina","10-25":"Aurel","10-26":"Erik",
+      "10-27":"Štefan","10-28":"Simeon","10-29":"Silvia","10-30":"Tobias",
+      "10-31":"Šarlota","11-01":"Hubert","11-02":"Pamätník zosnulých","11-03":"Huberta",
+      "11-04":"Kvetoslava","11-05":"Imrich","11-06":"Renáta","11-07":"Sáva",
+      "11-08":"Bohumír","11-09":"Zdenko","11-10":"Gejza","11-11":"Martin",
+      "11-12":"Margaréta","11-13":"Stanislav","11-14":"Svetlana","11-15":"Leopold",
+      "11-16":"Oto","11-17":"Agáta","11-18":"Milot","11-19":"Elvíra",
+      "11-20":"Felix","11-21":"Albert","11-22":"Cecília","11-23":"Klement",
+      "11-24":"Emília","11-25":"Katarína","11-26":"Artur","11-27":"Xavier",
+      "11-28":"René","11-29":"Zina","11-30":"Ondrej","12-01":"Edmund",
+      "12-02":"Blanka","12-03":"Oldřiška","12-04":"Barbora","12-05":"Jozefina",
+      "12-06":"Mikuláš","12-07":"Ambrož","12-08":"Oleg","12-09":"Viliam",
+      "12-10":"Radka","12-11":"Sláva","12-12":"Simona","12-13":"Lucia",
+      "12-14":"IVana","12-15":"Valér","12-16":"Albína","12-17":"Lukáš",
+      "12-18":"Miloslav","12-19":"Adela","12-20":"Dagmara","12-21":"Natália",
+      "12-22":"Štefánia","12-23":"Vlasta","12-24":"Adam a Eva","12-25":"Vianoce",
+      "12-26":"Štefan","12-27":"Alexandra","12-28":"Kamila","12-29":"Táňa",
+      "12-30":"Silvester","12-31":"Melánia"
     };
 
-    const narodeninySK = {
-      "01-07":"Monika V.","02-19":"Martin K.","03-22":"Alenka","03-28":"Vladimír D.",
-      "04-06":"Nikol","04-22":"Erik","04-28":"Monika M.","05-16":"Daniela",
-      "05-26":"Igor","05-30":"Zuzka I.","06-01":"Peťo G.","06-16":"Ľubomír L.",
-      "07-04":"Zuzka Ž.","07-15":"Jozef O.","07-24":"Marcel","08-01":"Ľubka",
-      "08-08":"Milan R.","08-11":"Martin Š.","09-11":"Peter G.","09-20":"Marián",
-      "10-08":"Vladimír V.","10-09":"Dušan","10-26":"Milan P.","11-04":"Adriana",
-      "11-13":"Jozef B.","11-17":"Milan S.","11-28":"Milan Ž.","11-29":"Lucka",
-      "12-13":"Rasťo","12-14":"Juraj","12-24":"Karol"
+    // Tu si môžeš doplniť narodeniny podľa kľúča "MM-DD"
+    const narodeniny = {
+      "06-19": "Tvoj kamarát Peter",
+      "12-25": "Tvoj bratranec Michal",
+      // sem môžeš doplniť ďalšie narodeniny
     };
 
-    const meniny = meninySK[kluc];
-    const narodeniny = narodeninySK[kluc];
+    // Vyhľadáme meniny podľa dnešného dátumu
+    const meno = meninySK[kluc];
+    const narod = narodeniny[kluc];
 
-    const meninyTextDiv = document.getElementById('meninyText');
-    const narodeninyTextDiv = document.getElementById('narodeninyText');
+    const meninyText = document.getElementById('meninyText');
+    const narodeninyText = document.getElementById('narodeninyText');
 
-    // Zobrazenie menín
-    if (meniny) {
-      meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} má meniny: <span class="meno">${meniny}</span>`;
+    if (meno) {
+      meninyText.innerHTML = `Dnes má meniny <span class="meno animacia">${meno}</span>!`;
     } else {
-      meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} nemá nikto meniny.`;
+      meninyText.innerHTML = `Dnes nemáme meniny v kalendári.`;
     }
 
-    // Zobrazenie narodenín alebo priania pekného dňa
-    if (narodeniny) {
-      narodeninyTextDiv.innerHTML = `Narodeniny má: <span class="meno">${narodeniny}</span><br>🎉 VŠETKO NAJLEPŠIE 🎉`;
-      narodeninyTextDiv.classList.add("animacia");
+    if (narod) {
+      narodeninyText.innerHTML = `Dnes má narodeniny <span class="meno animacia">${narod}</span>! 🎉`;
     } else {
-      narodeninyTextDiv.innerHTML = `<div class="peknyDen">Pekný deň 🙂</div>`;
+      narodeninyText.innerHTML = `<span class="peknyDen">Prajeme pekný deň! 😊</span>`;
     }
   </script>
 </body>
