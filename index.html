@@ -2,52 +2,44 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meniny a Narodeniny</title>
+  <title>Meniny a narodeniny</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #f0f8ff;
       text-align: center;
-      padding: 2rem;
-      background-color: #fff;
-      color: #333;
-    }
-    #container {
-      display: inline-block;
-      background-color: #d0e7ff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 90%;
+      padding-top: 50px;
     }
     .meno {
       color: red;
       font-weight: bold;
     }
-    .narodeniny {
-      margin-top: 1rem;
-      font-size: 1.3rem;
-      animation: pulzuj 1.5s ease-in-out infinite alternate;
+    #narodeninyText {
+      font-size: 24px;
+      margin-top: 20px;
     }
-    @keyframes pulzuj {
-      from {opacity: 0.5; transform: scale(0.98);}
-      to {opacity: 1; transform: scale(1.02);}
+    .animacia {
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .peknyDen {
+      color: #444;
+      font-size: 22px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-
-  <div id="container">
-    <div id="meninyText"></div>
-    <div id="narodeninyText" class="narodeniny"></div>
-  </div>
+  <h1 id="meninyText"></h1>
+  <div id="narodeninyText"></div>
 
   <script>
     const dnes = new Date();
-    const den = dnes.getDate();
-    const mesiac = dnes.getMonth() + 1;
-    const rok = dnes.getFullYear();
-    const kluc = String(mesiac).padStart(2,'0') + '-' + String(den).padStart(2,'0');
+    const den = String(dnes.getDate()).padStart(2, '0'
 
     const meninySK = {
       "01-01":"Nový rok","01-02":"Alexandra","01-03":"Daniela","01-04":"Drahoslav",
@@ -161,21 +153,20 @@
     const meninyTextDiv = document.getElementById('meninyText');
     const narodeninyTextDiv = document.getElementById('narodeninyText');
 
-    // Meniny text
+    // Zobrazenie menín
     if (meniny) {
       meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} má meniny: <span class="meno">${meniny}</span>`;
     } else {
-      meninyTextDiv.textContent = `Dnes ${den}.${mesiac}.${rok} nemá nikto meniny.`;
+      meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} nemá nikto meniny.`;
     }
 
-    // Narodeniny text + animácia
+    // Zobrazenie narodenín alebo priania pekného dňa
     if (narodeniny) {
       narodeninyTextDiv.innerHTML = `Narodeniny má: <span class="meno">${narodeniny}</span><br>🎉 VŠETKO NAJLEPŠIE 🎉`;
+      narodeninyTextDiv.classList.add("animacia");
     } else {
-      narodeninyTextDiv.textContent = '';
+      narodeninyTextDiv.innerHTML = `<div class="peknyDen">Pekný deň 🙂</div>`;
     }
-
   </script>
-
 </body>
 </html>
