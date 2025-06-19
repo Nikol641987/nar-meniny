@@ -38,11 +38,13 @@
   <div id="narodeninyText"></div>
 
   <script>
-    const dnes = new Date();
-    const den = String(dnes.getDate()).padStart(2, '0');
-    const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
-    const rok = dnes.getFullYear();
-    const kluc = `${mesiac}-${den}`;
+    window.onload = function() {
+      const dnes = new Date();
+      const den = String(dnes.getDate()).padStart(2, '0');
+      const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
+      const rok = dnes.getFullYear();
+      const kluc = `${mesiac}-${den}`;
+
 
     const meninySK = {
       "01-01":"Nový rok","01-02":"Alexandra","01-03":"Daniela","01-04":"Drahoslav",
@@ -139,30 +141,37 @@
       "12-30":"Silvester","12-31":"Melánia"
     };
 
-    // Tu si môžeš doplniť narodeniny podľa kľúča "MM-DD"
-    const narodeniny = {
-      "06-19": "Tvoj kamarát Peter",
-      "12-25": "Tvoj bratranec Michal",
-      // sem môžeš doplniť ďalšie narodeniny
-    };
+      const narodeninySK = {
+  "01-07":"Monika V.","02-19":"Martin K.","03-22":"Alenka","03-28":"Vladimír D.",
+  "04-06":"Nikol","04-22":"Erik","04-28":"Monika M.","05-16":"Daniela",
+  "05-26":"Igor","05-30":"Zuzka I.","06-01":"Peťo G.","06-16":"Ľubomír L.",
+  "07-04":"Zuzka Ž.","07-15":"Jozef O.","07-24":"Marcel","08-01":"Ľubka",
+  "08-08":"Milan R.","08-11":"Martin Š.","09-11":"Peter G.","09-20":"Marián",
+  "10-08":"Vladimír V.","10-09":"Dušan","10-26":"Milan P.","11-04":"Adriana",
+  "11-13":"Jozef B.","11-17":"Milan S.","11-28":"Milan Ž.","11-29":"Lucka",
+  "12-13":"Rasťo","12-14":"Juraj","12-24":"Karol"
+   };
+    
+   const meniny = meninySK[kluc];
+      const narodeniny = narodeninySK[kluc];
 
-    // Vyhľadáme meniny podľa dnešného dátumu
-    const meno = meninySK[kluc];
-    const narod = narodeniny[kluc];
+      const meninyTextDiv = document.getElementById('meninyText');
+      const narodeninyTextDiv = document.getElementById('narodeninyText');
 
-    const meninyText = document.getElementById('meninyText');
-    const narodeninyText = document.getElementById('narodeninyText');
+      // Zobrazenie menín
+      if (meniny) {
+        meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} má meniny: <span class="meno">${meniny}</span>`;
+      } else {
+        meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} nemá nikto meniny.`;
+      }
 
-    if (meno) {
-      meninyText.innerHTML = `Dnes má meniny <span class="meno animacia">${meno}</span>!`;
-    } else {
-      meninyText.innerHTML = `Dnes nemáme meniny v kalendári.`;
-    }
-
-    if (narod) {
-      narodeninyText.innerHTML = `Dnes má narodeniny <span class="meno animacia">${narod}</span>! 🎉`;
-    } else {
-      narodeninyText.innerHTML = `<span class="peknyDen">Prajeme pekný deň! 😊</span>`;
+      // Zobrazenie narodenín alebo priania pekného dňa s animáciou
+      if (narodeniny) {
+        narodeninyTextDiv.innerHTML = `Narodeniny má: <span class="meno">${narodeniny}</span>`;
+        narodeninyTextDiv.classList.add("animacia");
+      } else {
+        narodeninyTextDiv.innerHTML = `<div class="peknyDen animacia">Pekný deň 🙂</div>`;
+      }
     }
   </script>
 </body>
