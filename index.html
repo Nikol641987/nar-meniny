@@ -30,9 +30,17 @@
 </head>
 <body>
   <div id="narodeniny">Načítavam narodeniny...</div>
-   <div id="meniny">Načítavam meniny...</div>
+  <div id="meniny">Načítavam meniny...</div>
   
   <script>
+    // Spoločné premenné pre oba výpočty
+    const dnes = new Date();
+    const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
+    const den = String(dnes.getDate()).padStart(2, '0');
+    const kluc = `${mesiac}-${den}`;
+    const rok = dnes.getFullYear();
+
+    // Narodeniny
     const narodeninySK = {
       "01-07": "Monika V.",
       "02-19": "Martin K.",
@@ -66,27 +74,18 @@
       "12-14": "Juraj",
       "12-24": "Karol"
     };
-
-    const dnes = new Date();
-    const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
-    const den = String(dnes.getDate()).padStart(2, '0');
-    const kluc = `${mesiac}-${den}`;
-
-    const meno = narodeninySK[kluc];
-
+    const menoNar = narodeninySK[kluc];
     const narodeninyDiv = document.getElementById('narodeniny');
-
-    if (meno) {
+    if (menoNar) {
       narodeninyDiv.innerHTML = `
-        Narodeniny má: <span class="highlight">${meno}</span><br>
+        Narodeniny má: <span class="highlight">${menoNar}</span><br>
         <strong>VŠETKO NAJLEPŠIE...</strong>
       `;
     } else {
       narodeninyDiv.innerHTML = "Pekný deň :)";
     }
-  </script>
 
-   <script>
+    // Meniny
     const meninySK = {
       "01-01": "Nový rok",
       "01-02": "Alexandra",
@@ -462,27 +461,12 @@
       "12-29": "Milada",
       "12-30": "Dávid",
       "12-31": "Silvester"
-
-      // Z dôvodu limitu správy tu končí výpis. Pokračovanie v ďalšej správe.
     };
-
-const dnes = new Date();
-const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
-const den = String(dnes.getDate()).padStart(2, '0');
-const rok = dnes.getFullYear();
-
-const kluc = `${mesiac}-${den}`;
-const meno = meninySK[kluc] || 'Neznáme meniny';
-
-// Formát dátumu bez nul pre deň a mesiac (napr. 4.6.2025)
-const formatovanyDatum = `${dnes.getDate()}.${String(dnes.getMonth() + 1).replace(/^0/, '')}.${rok}`;
-
-document.getElementById('meniny').innerHTML = 
-  `Dnes ${formatovanyDatum} má meniny: <span class="highlight">${meno}</span>`;
-    
+    const menoMen = meninySK[kluc] || 'Neznáme meniny';
+    // Formát dátumu bez nul pre deň a mesiac
+    const formatovanyDatum = `${dnes.getDate()}.${String(dnes.getMonth() + 1).replace(/^0/, '')}.${rok}`;
+    document.getElementById('meniny').innerHTML = 
+      `Dnes ${formatovanyDatum} má meniny: <span class="highlight">${menoMen}</span>`;
   </script>
-
-
-  
 </body>
 </html>
