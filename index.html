@@ -37,9 +37,12 @@
   <h1 id="meninyText"></h1>
   <div id="narodeninyText"></div>
 
-  <script>
+ <script>
     const dnes = new Date();
-    const den = String(dnes.getDate()).padStart(2, '0'
+    const den = String(dnes.getDate()).padStart(2, '0');
+    const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
+    const rok = dnes.getFullYear();
+    const kluc = `${mesiac}-${den}`;
 
     const meninySK = {
       "01-01":"Nový rok","01-02":"Alexandra","01-03":"Daniela","01-04":"Drahoslav",
