@@ -153,25 +153,31 @@
    };
     
    const meniny = meninySK[kluc];
-      const narodeniny = narodeninySK[kluc];
+const narodeniny = narodeninySK[kluc];
 
-      const meninyTextDiv = document.getElementById('meninyText');
-      const narodeninyTextDiv = document.getElementById('narodeninyText');
+const meninyTextDiv = document.getElementById('meninyText');
+const narodeninyTextDiv = document.getElementById('narodeninyText');
 
-      // Zobrazenie menín
-      if (meniny) {
-        meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} má meniny: <span class="meno">${meniny}</span>`;
-      } else {
-        meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} nemá nikto meniny.`;
-      }
+// Zobrazenie menín
+if (meniny) {
+  meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} má meniny: <span class="meno">${meniny}</span>`;
+} else {
+  meninyTextDiv.innerHTML = `Dnes ${den}.${mesiac}.${rok} nemá nikto meniny.`;
+}
 
-      // Zobrazenie narodenín alebo priania pekného dňa s animáciou
-      if (narodeniny) {
-        narodeninyTextDiv.innerHTML = `Narodeniny má: <span class="meno">${narodeniny}</span>`;
-        narodeninyTextDiv.classList.add("animacia");
-      } else {
-        narodeninyTextDiv.innerHTML = `<div class="peknyDen animacia">Pekný deň 🙂</div>`;
-      }
+// Zobrazenie narodenín alebo priania pekného dňa s animáciou
+if (narodeniny) {
+  narodeninyTextDiv.innerHTML = `
+    Narodeniny má: <span class="meno">${narodeniny}</span>
+    <div class="vsetkoNajlepsie">VŠETKO NAJLEPŠIE 🎉🎂🥳</div>
+  `;
+  narodeninyTextDiv.classList.add("animacia");
+} else {
+  narodeninyTextDiv.innerHTML = `
+    <div class="peknyDen animacia">Pekný deň 🙂</div>
+    <div class="vsetkoNajlepsie">VŠETKO NAJLEPŠIE 🎉🎂🥳</div>
+  `;
+}
     }
   </script>
 </body>
