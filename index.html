@@ -151,20 +151,20 @@
    };
 
       // meniny dnes
-      const meninyDnes = meninySK[kluc] || "Meniny dnes nie sú";
+const meninyDnes = meninySK[kluc] || "";
 
-      // narodeniny dnes (pole mien)
-      const narodeninyDnes = narodeniny[kluc] || [];
+// narodeniny dnes (pole mien)
+const narodeninyDnes = narodeniny[kluc] || [];
 
-      const meninyText = document.getElementById("meninyText");
-      const narodeninyText = document.getElementById("narodeninyText");
+const meninyText = document.getElementById("meninyText");
+const narodeninyText = document.getElementById("narodeninyText");
 
-      if (narodeninyDnes.length > 0) {
-        meninyText.innerHTML = `🎉 Dnes majú meniny: <span class="meno">${meninyDnes}</span> <br> 🎂 Narodeniny: <span class="meno">${narodeninyDnes.join(", ")}</span> 🎉`;
-        narodeninyText.innerHTML = `<span class="animacia">🎊 Všetko najlepšie k narodeninám! 🎊</span>`;
-      } else {
-        meninyText.innerHTML = `🎉 Dnes majú meniny: <span class="meno">${meninyDnes}</span>`;
-        narodeninyText.innerHTML = `<div class="peknyDen">Pekný deň! ☀️</div>`;
+if (narodeninyDnes.length > 0) {
+  meninyText.innerHTML = `🎉 Dnes majú meniny: <span class="meno">${meninyDnes}</span> <br> 🎂 Narodeniny: <span class="meno">${narodeninyDnes.join(", ")}</span> 🎉`;
+  narodeninyText.innerHTML = `<span class="animacia">🎊 Všetko najlepšie k narodeninám! 🎊</span>`;
+} else {
+  meninyText.innerHTML = `🎉 Dnes majú meniny: <span class="meno">${meninyDnes}</span>`;
+  narodeninyText.innerHTML = `<div class="peknyDen">Pekný deň! ☀️</div>`;
       }
     }
   </script>
