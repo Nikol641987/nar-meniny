@@ -14,10 +14,6 @@
       color: red;
       font-weight: bold;
     }
-    #narodeninyText {
-      font-size: 24px;
-      margin-top: 20px;
-    }
     .animacia {
       animation: pulse 1.5s infinite;
     }
@@ -34,9 +30,8 @@
   </style>
 </head>
 <body>
-  <h2 id="datumText"></h2> <!-- tu bude dátum -->
-  <h1 id="meninyText"></h1>
-  <div id="narodeninyText"></div>
+  <h2 id="datumMeninyNarodeninyText"></h2>
+  <div id="peknyDenText"></div>
 
   <script>
    window.onload = function() {
@@ -44,10 +39,6 @@
     const den = dnes.getDate();
     const mesiac = dnes.getMonth() + 1;
     const rok = dnes.getFullYear();
-
-    // dátum ako text, bez núl na začiatku (napr. 7.7.2025)
-    const datumText = `Dnes je ${den}.${mesiac}.${rok}`;
-    document.getElementById("datumText").textContent = datumText;
 
     const kluc = `${String(mesiac).padStart(2, '0')}-${String(den).padStart(2, '0')}`;
 
@@ -157,23 +148,31 @@
   "12-13":"Rasťo","12-14":"Juraj","12-24":"Karol"
    };
 
-     // meniny dnes
-const meninyDnes = meninySK[kluc] || "";
+    const dnes = new Date();
+    const den = dnes.getDate();
+    const mesiac = dnes.getMonth() + 1;
+    const rok = dnes.getFullYear();
 
-// narodeniny dnes (pole mien)
-const narodeninyDnes = narodeninySK[kluc] ? [narodeninySK[kluc]] : [];
+    const kluc = `${den}.${mesiac}.`;
 
-const meninyText = document.getElementById("meninyText");
-const narodeninyText = document.getElementById("narodeninyText");
+    const meninyDnes = meninySK[kluc] || "";
+    const narodeninyDnes = narodeninySK[kluc] ? [narodeninySK[kluc]] : [];
 
-if (narodeninyDnes.length > 0) {
-  meninyText.innerHTML = `🎉 Dnes má meniny: <span class="meno">${meninyDnes}</span> <br> 🎂 Narodeniny: <span class="meno">${narodeninyDnes.join(", ")}</span> 🎉`;
-  narodeninyText.innerHTML = `<span class="animacia">🎊 Všetko najlepšie k narodeninám! 🎊</span>`;
-} else {
-  meninyText.innerHTML = `🎉 Dnes má meniny: <span class="meno">${meninyDnes}</span>`;
-  narodeninyText.innerHTML = `<div class="peknyDen">Pekný deň! ☀️</div>`;
-      }
+    const meninyText = document.getElementById("meninyText");
+    const narodeninyText = document.getElementById("narodeninyText");
+
+    const datumText = `Dnes je ${den}.${mesiac}.${rok}`;
+    let riadok1 = `${datumText} Meniny má <span class="meno">${meninyDnes}</span> 🎉`;
+
+    let riadok2 = "";
+    if (narodeninyDnes.length > 0) {
+      riadok2 = `🎂 Narodeniny má <span class="meno">${narodeninyDnes.join(", ")}</span>`;
+    } else {
+      riadok2 = `<div class="peknyDen">Pekný deň! ☀️</div>`;
     }
+
+    meninyText.innerHTML = riadok1;
+    narodeninyText.innerHTML = riadok2;
   </script>
 </body>
 </html>
