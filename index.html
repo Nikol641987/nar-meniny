@@ -38,11 +38,11 @@
   <div id="narodeninyText"></div>
 
   <script>
-    window.onload = function() {
-      const dnes = new Date();
-      const den = String(dnes.getDate()).padStart(2, '0');
-      const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
-      const kluc = `${mesiac}-${den}`;
+   window.onload = function() {
+  const dnes = new Date();
+  const den = String(dnes.getDate()).padStart(2, '0');
+  const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
+  const kluc = `${mesiac}-${den}`;
 
       const meninySK = {
         "01-01":"Nový rok","01-02":"Alexandra","01-03":"Daniela","01-04":"Drahoslav",
@@ -150,11 +150,11 @@
   "12-13":"Rasťo","12-14":"Juraj","12-24":"Karol"
    };
 
-      // meniny dnes
+     // meniny dnes
 const meninyDnes = meninySK[kluc] || "";
 
 // narodeniny dnes (pole mien)
-const narodeninyDnes = narodeniny[kluc] || [];
+const narodeninyDnes = narodeninySK[kluc] ? [narodeninySK[kluc]] : [];
 
 const meninyText = document.getElementById("meninyText");
 const narodeninyText = document.getElementById("narodeninyText");
