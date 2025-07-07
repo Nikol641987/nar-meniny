@@ -45,8 +45,9 @@
     const mesiac = dnes.getMonth() + 1;
     const rok = dnes.getFullYear();
 
-    // dátum ako text, bez núl na začiatku (7.7.2025)
+    // dátum ako text, bez núl na začiatku (napr. 7.7.2025)
     const datumText = `Dnes je ${den}.${mesiac}.${rok}`;
+    document.getElementById("datumText").textContent = datumText;
 
     const kluc = `${String(mesiac).padStart(2, '0')}-${String(den).padStart(2, '0')}`;
 
