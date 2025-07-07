@@ -30,17 +30,14 @@
   </style>
 </head>
 <body>
+
   <h2 id="datumMeninyNarodeninyText"></h2>
+
+  <div id="meninyText"></div>
+  <div id="narodeninyText"></div>
   <div id="peknyDenText"></div>
 
-  <script>
-   window.onload = function() {
-    const dnes = new Date();
-    const den = dnes.getDate();
-    const mesiac = dnes.getMonth() + 1;
-    const rok = dnes.getFullYear();
-
-    const kluc = `${String(mesiac).padStart(2, '0')}-${String(den).padStart(2, '0')}`;
+<script>
 
       const meninySK = {
         "01-01":"Nový rok","01-02":"Alexandra","01-03":"Daniela","01-04":"Drahoslav",
@@ -148,31 +145,35 @@
   "12-13":"Rasťo","12-14":"Juraj","12-24":"Karol"
    };
 
+    window.onload = function() {
     const dnes = new Date();
     const den = dnes.getDate();
     const mesiac = dnes.getMonth() + 1;
     const rok = dnes.getFullYear();
 
-    const kluc = `${den}.${mesiac}.`;
+    const kluc = `${String(mesiac).padStart(2, '0')}-${String(den).padStart(2, '0')}`;
 
-    const meninyDnes = meninySK[kluc] || "";
-    const narodeninyDnes = narodeninySK[kluc] ? [narodeninySK[kluc]] : [];
-
-    const meninyText = document.getElementById("meninyText");
-    const narodeninyText = document.getElementById("narodeninyText");
+    const meno = meninySK[kluc] || "neznáme meno";
+    const narodeniny = narodeninySK[kluc] || "";
 
     const datumText = `Dnes je ${den}.${mesiac}.${rok}`;
-    let riadok1 = `${datumText} Meniny má <span class="meno">${meninyDnes}</span> 🎉`;
+    document.getElementById("datumMeninyNarodeninyText").textContent = datumText;
 
-    let riadok2 = "";
-    if (narodeninyDnes.length > 0) {
-      riadok2 = `🎂 Narodeniny má <span class="meno">${narodeninyDnes.join(", ")}</span>`;
+    if(meno !== "neznáme meno") {
+      document.getElementById("meninyText").innerHTML = `Meniny má <span class="meno animacia">${meno}</span> 🎉`;
     } else {
-      riadok2 = `<div class="peknyDen">Pekný deň! ☀️</div>`;
+      document.getElementById("meninyText").textContent = "";
     }
 
-    meninyText.innerHTML = riadok1;
-    narodeninyText.innerHTML = riadok2;
-  </script>
+    if(narodeniny) {
+      document.getElementById("narodeninyText").innerHTML = `🎂 Narodeniny má <span class="meno">${narodeniny}</span>`;
+      document.getElementById("peknyDenText").textContent = "";
+    } else {
+      document.getElementById("narodeninyText").textContent = "";
+      document.getElementById("peknyDenText").innerHTML = `<div class="peknyDen">Pekný deň! ☀️</div>`;
+    }
+  };
+</script>
+
 </body>
 </html>
