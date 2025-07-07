@@ -34,15 +34,21 @@
   </style>
 </head>
 <body>
+  <h2 id="datumText"></h2> <!-- tu bude dátum -->
   <h1 id="meninyText"></h1>
   <div id="narodeninyText"></div>
 
   <script>
    window.onload = function() {
-  const dnes = new Date();
-  const den = String(dnes.getDate()).padStart(2, '0');
-  const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
-  const kluc = `${mesiac}-${den}`;
+    const dnes = new Date();
+    const den = dnes.getDate();
+    const mesiac = dnes.getMonth() + 1;
+    const rok = dnes.getFullYear();
+
+    // dátum ako text, bez núl na začiatku (7.7.2025)
+    const datumText = `Dnes je ${den}.${mesiac}.${rok}`;
+
+    const kluc = `${String(mesiac).padStart(2, '0')}-${String(den).padStart(2, '0')}`;
 
       const meninySK = {
         "01-01":"Nový rok","01-02":"Alexandra","01-03":"Daniela","01-04":"Drahoslav",
