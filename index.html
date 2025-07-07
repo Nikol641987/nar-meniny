@@ -42,132 +42,127 @@
       const dnes = new Date();
       const den = String(dnes.getDate()).padStart(2, '0');
       const mesiac = String(dnes.getMonth() + 1).padStart(2, '0');
-      const rok = dnes.getFullYear();
       const kluc = `${mesiac}-${den}`;
 
+      const meninySK = {
+        "01-01":"Nový rok","01-02":"Alexandra","01-03":"Daniela","01-04":"Drahoslav",
+        "01-05":"Andrea","01-06":"Traja králi","01-07":"Bohuslava","01-08":"Severín",
+        "01-09":"Alexej","01-10":"Dáša","01-11":"Malvína","01-12":"Ernest",
+        "01-13":"Rastislav","01-14":"Radovan","01-15":"Dobroslav","01-16":"Kristína",
+        "01-17":"Nataša","01-18":"Bohdana","01-19":"Drahomíra","01-20":"Dalibor",
+        "01-21":"Vincent","01-22":"Zora","01-23":"Miloš","01-24":"Timotej",
+        "01-25":"Gejza","01-26":"Tamara","01-27":"Bohuš","01-28":"Alfonz",
+        "01-29":"Gašpar","01-30":"Ema","01-31":"Emil","02-01":"Tatiana",
+        "02-02":"Erika, Erik","02-03":"Blažej","02-04":"Veronika","02-05":"Agáta",
+        "02-06":"Dorota","02-07":"Vanda","02-08":"Zoja","02-09":"Zdenko",
+        "02-10":"Gabriela","02-11":"Dezider","02-12":"Perla","02-13":"Arpád",
+        "02-14":"Valentín","02-15":"Pravoslav","02-16":"Ida, Liana","02-17":"Miloslava",
+        "02-18":"Jaromír","02-19":"Vlasta","02-20":"Lívia","02-21":"Eleonóra",
+        "02-22":"Etela","02-23":"Roman","02-24":"Matej","02-25":"Frederik",
+        "02-26":"Viktor","02-27":"Alexander","02-28":"Zlatica","02-29":"Lea",
+        "03-01":"Albín","03-02":"Anežka","03-03":"Bohumil","03-04":"Kazimír",
+        "03-05":"Fridrich","03-06":"Radoslav","03-07":"Tomáš","03-08":"Ženy",
+        "03-09":"Františka","03-10":"Bruno","03-11":"Angela","03-12":"Gregor",
+        "03-13":"Vlastimil","03-14":"Matilda","03-15":"Svetlana","03-16":"Boleslav",
+        "03-17":"Ľubica","03-18":"Eduard","03-19":"Jozef","03-20":"Víťazoslav",
+        "03-21":"Blahoslav","03-22":"Beňadik","03-23":"Adrián","03-24":"Gabriel",
+        "03-25":"Marián","03-26":"Emanuel","03-27":"Alena","03-28":"Soňa",
+        "03-29":"Miroslav","03-30":"Vieroslava","03-31":"Benjamín","04-01":"Hugo",
+        "04-02":"Zita","04-03":"Richard","04-04":"Izidor","04-05":"Miroslava",
+        "04-06":"Irena","04-07":"Zoltán","04-08":"Albert","04-09":"Milena",
+        "04-10":"Igor","04-11":"Július","04-12":"Estera","04-13":"Aleš",
+        "04-14":"Justína","04-15":"Fedor","04-16":"Dana","04-17":"Rudolf",
+        "04-18":"Valér","04-19":"Jela","04-20":"Marcel","04-21":"Ervín",
+        "04-22":"Slavomír","04-23":"Vojtech","04-24":"Juraj","04-25":"Marek",
+        "04-26":"Jaroslava","04-27":"Jaroslav","04-28":"Jarmila","04-29":"Lea",
+        "04-30":"Anastázia","05-01":"Sviatok práce","05-02":"Žigmund",
+        "05-03":"Galina","05-04":"Florián","05-05":"Lesana","05-06":"Hermína",
+        "05-07":"Monika","05-08":"Ingrida","05-09":"Roland","05-10":"Viktória",
+        "05-11":"Blažena","05-12":"Pankrác","05-13":"Servác","05-14":"Bonifác",
+        "05-15":"Žofia","05-16":"Svetozár","05-17":"Gizela","05-18":"Viola",
+        "05-19":"Gertrúda","05-20":"Bernard","05-21":"Zina","05-22":"Júlia",
+        "05-23":"Želmíra","05-24":"Ela","05-25":"Urban","05-26":"Dušan",
+        "05-27":"Iveta","05-28":"Viliam","05-29":"Vilma","05-30":"Ferdinand",
+        "05-31":"Petronela","06-01":"Žaneta","06-02":"Xénia","06-03":"Karolína",
+        "06-04":"Lenka","06-05":"Laura","06-06":"Norbert","06-07":"Róbert",
+        "06-08":"Medard","06-09":"Stanislava","06-10":"Margaréta","06-11":"Dobroslava",
+        "06-12":"Zlatko","06-13":"Anton","06-14":"Vasil","06-15":"Vít",
+        "06-16":"Blanka","06-17":"Adolf","06-18":"Vratislav","06-19":"Alfréd",
+        "06-20":"Valéria","06-21":"Alojz","06-22":"Paulína","06-23":"Sidónia",
+        "06-24":"Ján","06-25":"Tadeáš","06-26":"Adriana","06-27":"Ladislav",
+        "06-28":"Beáta","06-29":"Peter a Pavol","06-30":"Melánia","07-01":"Diana",
+        "07-02":"Berta","07-03":"Miloslav","07-04":"Prokop","07-05":"Cyril a Metod",
+        "07-06":"Patrik","07-07":"Oliver","07-08":"Ivan","07-09":"Lujza",
+        "07-10":"Amália","07-11":"Milota","07-12":"Nina","07-13":"Margita",
+        "07-14":"Kamil","07-15":"Henrich","07-16":"Drahomír","07-17":"Bohuslav",
+        "07-18":"Kamila","07-19":"Dušana","07-20":"Iľja","07-21":"Daniel",
+        "07-22":"Magdaléna","07-23":"Oľga","07-24":"Vladimír","07-25":"Jakub",
+        "07-26":"Anna","07-27":"Božena","07-28":"Krištof","07-29":"Marta",
+        "07-30":"Libuša","07-31":"Ignác","08-01":"Božidara","08-02":"Gustáv",
+        "08-03":"Jerguš","08-04":"Dominik","08-05":"Hortenzia","08-06":"Jozefína",
+        "08-07":"Štefánia","08-08":"Oskar","08-09":"Roman","08-10":"Ľudovít",
+        "08-11":"Zuzana","08-12":"Clarissa","08-13":"Ľubomíra","08-14":"Alan",
+        "08-15":"Mária","08-16":"Leonard","08-17":"Jozef","08-18":"Hana",
+        "08-19":"Lýdia","08-20":"Bernard","08-21":"Ján","08-22":"Mojmír",
+        "08-23":"Bartolomej","08-24":"Ľubor","08-25":"Ľudmila","08-26":"Daniela",
+        "08-27":"Sebastián","08-28":"Augustín","08-29":"Evelína","08-30":"Rupert",
+        "08-31":"Rozália","09-01":"Apolónia","09-02":"Linda","09-03":"Bohuslava",
+        "09-04":"Rozália","09-05":"Regína","09-06":"Ales","09-07":"Marianna",
+        "09-08":"Miriama","09-09":"Adriana","09-10":"Nora","09-11":"Denisa",
+        "09-12":"Milan","09-13":"Ľudovít","09-14":"Magnézia","09-15":"Ľudmila",
+        "09-16":"Zdenka","09-17":"Mojmír","09-18":"Dávid","09-19":"Jolana",
+        "09-20":"Matúš","09-21":"Michaela","09-22":"Darina","09-23":"Berenika",
+        "09-24":"Matej","09-25":"Ľubomíra","09-26":"Cyprián","09-27":"Konštantín",
+        "09-28":"Václav","09-29":"Michal","09-30":"Igor","10-01":"Arnold",
+        "10-02":"Lea","10-03":"Bohuslav","10-04":"František","10-05":"Miriama",
+        "10-06":"Vendelín","10-07":"Ambróz","10-08":"Vendelín","10-09":"Dionýz",
+        "10-10":"Štefan","10-11":"Andrej","10-12":"Mariana","10-13":"Tibor",
+        "10-14":"Agáta","10-15":"Terézia","10-16":"Hedviga","10-17":"Viliam",
+        "10-18":"Lukáš","10-19":"Kristián","10-20":"Vendelín","10-21":"Uršuľa",
+        "10-22":"Elena","10-23":"Teodor","10-24":"Nina","10-25":"Kvetoslava",
+        "10-26":"Dimitrij","10-27":"Šarlota","10-28":"Sabína","10-29":"Silvia",
+        "10-30":"Vavrinec","10-31":"Wolfgang","11-01":"Felix","11-02":"Alžbeta",
+        "11-03":"Hubert","11-04":"Karel","11-05":"Miriam","11-06":"Renáta",
+        "11-07":"Svätopluk","11-08":"Bohumil","11-09":"Teodor","11-10":"Dragan",
+        "11-11":"Martin","11-12":"Staná","11-13":"Vladislav","11-14":"Irma",
+        "11-15":"Leopold","11-16":"Oto","11-17":"Miloslav","11-18":"Romana",
+        "11-19":"Alžbeta","11-20":"René","11-21":"Elvíra","11-22":"Cecília",
+        "11-23":"Klement","11-24":"Emília","11-25":"Katarína","11-26":"Artur",
+        "11-27":"Xénia","11-28":"Viktor","11-29":"Zina","11-30":"Ondrej",
+        "12-01":"Ema","12-02":"Blanka","12-03":"Katarína","12-04":"Barbora",
+        "12-05":"Svetlana","12-06":"Mikuláš","12-07":"Amós","12-08":"Mária",
+        "12-09":"Izabela","12-10":"Radka","12-11":"Kristián","12-12":"Otília",
+        "12-13":"Lucia","12-14":"Lívia","12-15":"Ivana","12-16":"Albína",
+        "12-17":"Ladislav","12-18":"Miloslav","12-19":"Ester","12-20":"Advent",
+        "12-21":"Mário","12-22":"Štefánia","12-23":"Vlasta","12-24":"Adam a Eva",
+        "12-25":"Prvý sviatok vianočný","12-26":"Štefan","12-27":"Žaneta",
+        "12-28":"Kamila","12-29":"Judita","12-30":"David","12-31":"Silvester"
+      };
 
-    const meninySK = {
-      "01-01":"Nový rok","01-02":"Alexandra","01-03":"Daniela","01-04":"Drahoslav",
-      "01-05":"Andrea","01-06":"Traja králi","01-07":"Bohuslava","01-08":"Severín",
-      "01-09":"Alexej","01-10":"Dáša","01-11":"Malvína","01-12":"Ernest",
-      "01-13":"Rastislav","01-14":"Radovan","01-15":"Dobroslav","01-16":"Kristína",
-      "01-17":"Nataša","01-18":"Bohdana","01-19":"Drahomíra","01-20":"Dalibor",
-      "01-21":"Vincent","01-22":"Zora","01-23":"Miloš","01-24":"Timotej",
-      "01-25":"Gejza","01-26":"Tamara","01-27":"Bohuš","01-28":"Alfonz",
-      "01-29":"Gašpar","01-30":"Ema","01-31":"Emil","02-01":"Tatiana",
-      "02-02":"Erika, Erik","02-03":"Blažej","02-04":"Veronika","02-05":"Agáta",
-      "02-06":"Dorota","02-07":"Vanda","02-08":"Zoja","02-09":"Zdenko",
-      "02-10":"Gabriela","02-11":"Dezider","02-12":"Perla","02-13":"Arpád",
-      "02-14":"Valentín","02-15":"Pravoslav","02-16":"Ida, Liana","02-17":"Miloslava",
-      "02-18":"Jaromír","02-19":"Vlasta","02-20":"Lívia","02-21":"Eleonóra",
-      "02-22":"Etela","02-23":"Roman","02-24":"Matej","02-25":"Frederik",
-      "02-26":"Viktor","02-27":"Alexander","02-28":"Zlatica","02-29":"Lea",
-      "03-01":"Albín","03-02":"Anežka","03-03":"Bohumil","03-04":"Kazimír",
-      "03-05":"Fridrich","03-06":"Radoslav","03-07":"Tomáš","03-08":"Ženy",
-      "03-09":"Františka","03-10":"Bruno","03-11":"Angela","03-12":"Gregor",
-      "03-13":"Vlastimil","03-14":"Matilda","03-15":"Svetlana","03-16":"Boleslav",
-      "03-17":"Ľubica","03-18":"Eduard","03-19":"Jozef","03-20":"Víťazoslav",
-      "03-21":"Blahoslav","03-22":"Beňadik","03-23":"Adrián","03-24":"Gabriel",
-      "03-25":"Marián","03-26":"Emanuel","03-27":"Alena","03-28":"Soňa",
-      "03-29":"Miroslav","03-30":"Vieroslava","03-31":"Benjamín","04-01":"Hugo",
-      "04-02":"Zita","04-03":"Richard","04-04":"Izidor","04-05":"Miroslava",
-      "04-06":"Irena","04-07":"Zoltán","04-08":"Albert","04-09":"Milena",
-      "04-10":"Igor","04-11":"Július","04-12":"Estera","04-13":"Aleš",
-      "04-14":"Justína","04-15":"Fedor","04-16":"Dana","04-17":"Rudolf",
-      "04-18":"Valér","04-19":"Jela","04-20":"Marcel","04-21":"Ervín",
-      "04-22":"Slavomír","04-23":"Vojtech","04-24":"Juraj","04-25":"Marek",
-      "04-26":"Jaroslava","04-27":"Jaroslav","04-28":"Jarmila","04-29":"Lea",
-      "04-30":"Anastázia","05-01":"Sviatok práce","05-02":"Žigmund",
-      "05-03":"Galina","05-04":"Florián","05-05":"Lesana","05-06":"Hermína",
-      "05-07":"Monika","05-08":"Ingrida","05-09":"Roland","05-10":"Viktória",
-      "05-11":"Blažena","05-12":"Pankrác","05-13":"Servác","05-14":"Bonifác",
-      "05-15":"Žofia","05-16":"Svetozár","05-17":"Gizela","05-18":"Viola",
-      "05-19":"Gertrúda","05-20":"Bernard","05-21":"Zina","05-22":"Júlia",
-      "05-23":"Želmíra","05-24":"Ela","05-25":"Urban","05-26":"Dušan",
-      "05-27":"Iveta","05-28":"Viliam","05-29":"Vilma","05-30":"Ferdinand",
-      "05-31":"Petronela","06-01":"Žaneta","06-02":"Xénia","06-03":"Karolína",
-      "06-04":"Lenka","06-05":"Laura","06-06":"Norbert","06-07":"Róbert",
-      "06-08":"Medard","06-09":"Stanislava","06-10":"Margaréta","06-11":"Dobroslava",
-      "06-12":"Zlatko","06-13":"Anton","06-14":"Vasil","06-15":"Vít",
-      "06-16":"Blanka","06-17":"Adolf","06-18":"Vratislav","06-19":"Alfréd",
-      "06-20":"Valéria","06-21":"Alojz","06-22":"Paulína","06-23":"Sidónia",
-      "06-24":"Ján","06-25":"Tadeáš","06-26":"Adriana","06-27":"Ladislav",
-      "06-28":"Beáta","06-29":"Peter a Pavol","06-30":"Melánia","07-01":"Diana",
-      "07-02":"Berta","07-03":"Miloslav","07-04":"Prokop","07-05":"Cyril a Metod",
-      "07-06":"Patrik","07-07":"Oliver","07-08":"Ivan","07-09":"Lujza",
-      "07-10":"Amália","07-11":"Milota","07-12":"Nina","07-13":"Margita",
-      "07-14":"Kamil","07-15":"Henrich","07-16":"Drahomír","07-17":"Bohuslav",
-      "07-18":"Kamila","07-19":"Dušana","07-20":"Iľja","07-21":"Daniel",
-      "07-22":"Magdaléna","07-23":"Oľga","07-24":"Vladimír","07-25":"Jakub",
-      "07-26":"Anna","07-27":"Božena","07-28":"Krištof","07-29":"Marta",
-      "07-30":"Libuša","07-31":"Ignác","08-01":"Božidara","08-02":"Gustáv",
-      "08-03":"Jerguš","08-04":"Dominik","08-05":"Hortenzia","08-06":"Jozefína",
-      "08-07":"Štefánia","08-08":"Oskar","08-09":"Ľubomíra","08-10":"Vavrinec",
-      "08-11":"Zuzana","08-12":"Darina","08-13":"Ľubomír","08-14":"Mojmír",
-      "08-15":"Marcela","08-16":"Leonard","08-17":"Milica","08-18":"Elena a Helena",
-      "08-19":"Lýdia","08-20":"Anabela","08-21":"Jana","08-22":"Tichomír",
-      "08-23":"Filip","08-24":"Bartolomej","08-25":"Ľudovít","08-26":"Samuel",
-      "08-27":"Silvia","08-28":"Augustín","08-29":"Nikola","08-30":"Ruži",
-      "08-31":"Nora","09-01":"Drahoslava","09-02":"Linda","09-03":"Belo","09-04":"Rozália",
-      "09-05":"Regína","09-06":"Alica","09-07":"Marianna","09-08":"Miriama",
-      "09-09":"Martina","09-10":"Oleg","09-11":"Bystrík","09-12":"Mária",
-      "09-13":"Ctibor","09-14":"Ľudomil","09-15":"Jolana","09-16":"Ľudmila",
-      "09-17":"Olympia","09-18":"Eugénia","09-19":"Konštantín","09-20":"Ľuboslav",
-      "09-21":"Matúš","09-22":"Móric","09-23":"Zdenka","09-24":"Ľuboš",
-      "09-25":"Vladislav","09-26":"Edita","09-27":"Cyprián","09-28":"Václav",
-      "09-29":"Michal","09-30":"Jarolím","10-01":"Arnold","10-02":"Levoslav",
-      "10-03":"Stela","10-04":"František","10-05":"Viera","10-06":"Natália",
-      "10-07":"Eliška","10-08":"Brigita","10-09":"Dionýz","10-10":"Slavomíra",
-      "10-11":"Valentína","10-12":"Maximilián","10-13":"Koloman","10-14":"Boris",
-      "10-15":"Terézia","10-16":"Vladimíra","10-17":"Hedviga","10-18":"Lukáš",
-      "10-19":"Ľudovíta","10-20":"Naděžda","10-21":"Orsola","10-22":"Sabína",
-      "10-23":"Teodor","10-24":"Nina","10-25":"Aurel","10-26":"Erik",
-      "10-27":"Štefan","10-28":"Simeon","10-29":"Silvia","10-30":"Tobias",
-      "10-31":"Šarlota","11-01":"Hubert","11-02":"Pamätník zosnulých","11-03":"Huberta",
-      "11-04":"Kvetoslava","11-05":"Imrich","11-06":"Renáta","11-07":"Sáva",
-      "11-08":"Bohumír","11-09":"Zdenko","11-10":"Gejza","11-11":"Martin",
-      "11-12":"Margaréta","11-13":"Stanislav","11-14":"Svetlana","11-15":"Leopold",
-      "11-16":"Oto","11-17":"Agáta","11-18":"Milot","11-19":"Elvíra",
-      "11-20":"Felix","11-21":"Albert","11-22":"Cecília","11-23":"Klement",
-      "11-24":"Emília","11-25":"Katarína","11-26":"Artur","11-27":"Xavier",
-      "11-28":"René","11-29":"Zina","11-30":"Ondrej","12-01":"Edmund",
-      "12-02":"Blanka","12-03":"Oldřiška","12-04":"Barbora","12-05":"Jozefina",
-      "12-06":"Mikuláš","12-07":"Ambrož","12-08":"Oleg","12-09":"Viliam",
-      "12-10":"Radka","12-11":"Sláva","12-12":"Simona","12-13":"Lucia",
-      "12-14":"IVana","12-15":"Valér","12-16":"Albína","12-17":"Lukáš",
-      "12-18":"Miloslav","12-19":"Adela","12-20":"Dagmara","12-21":"Natália",
-      "12-22":"Štefánia","12-23":"Vlasta","12-24":"Adam a Eva","12-25":"Vianoce",
-      "12-26":"Štefan","12-27":"Alexandra","12-28":"Kamila","12-29":"Táňa",
-      "12-30":"Silvester","12-31":"Melánia"
-    };
+      const narodeniny = {
+        "03-28": ["Pavol", "Anna"],
+        "04-15": ["Ján"],
+        "07-07": ["Mária"],
+        "12-13": ["Lucia", "Martin"],
+      };
 
-      const narodeninySK = {
-  "01-07":"Monika V.","02-19":"Martin K.","03-22":"Alenka","03-28":"Vladimír D.",
-  "04-06":"Nikol","04-22":"Erik","04-28":"Monika M.","05-16":"Daniela",
-  "05-26":"Igor","05-30":"Zuzka I.","06-01":"Peťo G.","06-16":"Ľubomír L.",
-  "07-04":"Zuzka Ž.","07-15":"Jozef O.","07-24":"Marcel","08-01":"Ľubka",
-  "08-08":"Milan R.","08-11":"Martin Š.","09-11":"Peter G.","09-20":"Marián",
-  "10-08":"Vladimír V.","10-09":"Dušan","10-26":"Milan P.","11-04":"Adriana",
-  "11-13":"Jozef B.","11-17":"Milan S.","11-28":"Milan Ž.","11-29":"Lucka",
-  "12-13":"Rasťo","12-14":"Juraj","12-24":"Karol"
-   };
-    
-   const meno = meninySK[kluc];
+      // meniny dnes
+      const meninyDnes = meninySK[kluc] || "Meniny dnes nie sú";
+
+      // narodeniny dnes (pole mien)
+      const narodeninyDnes = narodeniny[kluc] || [];
+
       const meninyText = document.getElementById("meninyText");
-      if (meno) {
-        meninyText.innerHTML = `Dnes má meniny <span class="meno animacia">${meno}</span>!`;
-      } else {
-        meninyText.innerHTML = "Dnes nikto nemá meniny (zatiaľ nevieme o nikom).";
-      }
-
-      // Zobraz narodeniny
-      const dnesNarodeniny = narodeniny[kluc];
       const narodeninyText = document.getElementById("narodeninyText");
-      if (dnesNarodeniny && dnesNarodeniny.length > 0) {
-        const mena = dnesNarodeniny.join(", ");
-        narodeninyText.innerHTML = `🎉 Dnes oslavuje narodeniny: <span class="meno animacia">${mena}</span>! 🎂`;
+
+      if (narodeninyDnes.length > 0) {
+        meninyText.innerHTML = `🎉 Dnes majú meniny: <span class="meno">${meninyDnes}</span> <br> 🎂 Narodeniny: <span class="meno">${narodeninyDnes.join(", ")}</span> 🎉`;
+        narodeninyText.innerHTML = `<span class="animacia">🎊 Všetko najlepšie k narodeninám! 🎊</span>`;
+      } else {
+        meninyText.innerHTML = `🎉 Dnes majú meniny: <span class="meno">${meninyDnes}</span>`;
+        narodeninyText.innerHTML = `<div class="peknyDen">Pekný deň! ☀️</div>`;
       }
-    };
+    }
   </script>
 </body>
 </html>
